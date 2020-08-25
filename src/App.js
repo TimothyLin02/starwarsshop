@@ -1,25 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
+import {Switch, Route} from 'react-router-dom';
 import './App.css';
+import { ShopProvider } from './components/hoc/context/ShopContext'
+import ShopItems from './components/hoc/ShopItems'
+import Summary from './components/orderSummary/Summary'
+import Controls from './components/orderControls/Controls'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ShopProvider>
+      <h1>StarWars Shop</h1>
+      <Switch>
+        <Route exact path="/summary" component={Summary}/>
+        <Route exact path="/shop" component={ShopItems}/>
+        <Route exact path="/" component={ShopItems}/>
+      </Switch>
+    </ShopProvider>
   );
 }
 
