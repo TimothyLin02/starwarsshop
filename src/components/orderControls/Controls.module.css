@@ -1,0 +1,9 @@
+.itemTable tr:nth-child(even) {background: #cccccc}
+.itemTable tr:nth-child(odd) {background: #FFF}
+.itemTable {
+    color: black;
+}
+
+.pay {
+    background-color: yellow;
+}

@@ -17,10 +17,10 @@ const useShopContext = () => {
     async function removeToy(toy) { 
         setData(prev => {
             let newData = [...prev.shopList]
-            main: for (let i = 0; i < newData.length; i++) {
+            for (let i = 0; i < newData.length; i++) {
                 if (newData[i].toy === toy) {
                     newData.pop(i)
-                    break main
+                    break;
                 }
             }
             return (

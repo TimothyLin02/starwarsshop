@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom"
 import useShopContext from "../hoc/context/useShopContext"
+import classes from "./Summary.module.css"
 
 export default function Summary() {
     const {data, checkout} = useShopContext()
@@ -10,9 +11,9 @@ export default function Summary() {
         let price = item['price']
         totalPrice += parseFloat(price)
         return (
-            <tr>
+            <tr key={`${toy} ${price}`}>
                 <td>{toy}</td>
-                <td>{price}</td>
+                <td>${price}</td>
             </tr>
         )
     })
@@ -21,7 +22,7 @@ export default function Summary() {
             <h1>Order Summary:</h1>
             {list.length > 0 ? 
                 <>
-                    <table>
+                    <table className={classes.summaryTable}>
                         <thead>
                             <tr>
                                 <td>Toy</td>
@@ -32,10 +33,10 @@ export default function Summary() {
                             {list}
                         </tbody>
                     </table>
-                    <h2>Total Price: {totalPrice}</h2>
+                    <h2>Total Price: ${totalPrice.toFixed(2)}</h2>
                     <button onClick={()=>checkout()}>Pay</button>
                 </>
-                :<p>You have not purchased any items.</p>
+                :<p>You have not added any items.</p>
             }
             <button><Link to={"/shop"}>Back to toys</Link></button>
         </>
