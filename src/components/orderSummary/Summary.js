@@ -6,12 +6,12 @@ import classes from "./Summary.module.css"
 export default function Summary() {
     const {data, checkout} = useShopContext()
     let totalPrice = 0
-    const list = data.shopList.map(item => {
+    const list = data.shopList.map((item, i) => {
         let toy = item['toy']
         let price = item['price']
         totalPrice += parseFloat(price)
         return (
-            <tr key={`${toy} ${price}`}>
+            <tr key={`${i} ${toy} ${price}`}>
                 <td>{toy}</td>
                 <td>${price}</td>
             </tr>

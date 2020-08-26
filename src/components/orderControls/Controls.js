@@ -9,10 +9,12 @@ export default function Controls(props) {
     for (let toy of Object.keys(data.toys)) {
         addRemoveButtons.push(
         <tr key={toy}>
-            <td>{toy}</td>
-            <td>${data.toys[toy]}</td>
-            <td><td><button key={`add${toy}`} onClick={() => addToy(toy)}>Add</button></td>
-            <td><button key={`remove${toy}`} onClick={() => removeToy(toy)}>Remove</button></td></td>
+            <td key={`name ${toy}`}>{toy}</td>
+            <td key={`price ${toy}`}>${data.toys[toy]}</td>
+            <td key={`buttons ${toy}`}>
+                <button key={`add${toy}`} onClick={() => addToy(toy)}>Add</button>
+                <button key={`remove${toy}`} onClick={() => removeToy(toy)}>Remove</button>
+            </td>
         </tr>
         )
     }

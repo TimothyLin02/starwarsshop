@@ -15,8 +15,8 @@ function App() {
           <Route exact path="/shop" component={ShopItems}/>
           <Route exact path="/" component={ShopItems}/>
         </Switch>
-        </div>
-      </ShopProvider>
+      </div>
+    </ShopProvider>
   );
 }
 
